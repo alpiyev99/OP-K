@@ -1,8 +1,6 @@
 // Файл: src/app/oborotThisDay.js
-import * as dotenv from 'dotenv'
-dotenv.config() // Загрузка переменных окружения из .env
+dotenv.config()
 
-import fetch from 'node-fetch' // Если Node < 18. В Node >=18 можно использовать встроенный fetch
 import { promises as fs } from 'fs'
 import { fileURLToPath } from 'url'
 import { dirname, resolve } from 'path'
@@ -46,7 +44,7 @@ const urlRes = apiUrlBuilder.addField(endpoint)
 console.log('Request URL:', urlRes)
 
 // ----------------------------------------------------------------------------
-// 3. Делаем запрос к API
+// 3. Делаем запрос к API (используем встроенный fetch в Node >= 18)
 try {
 	const response = await fetch(urlRes, {
 		method: 'GET',
@@ -67,8 +65,6 @@ try {
 
 	// ----------------------------------------------------------------------------
 	// 4. Сохраняем ответ в public/oborotThisDay.json
-	// Используем path.resolve для корректного пути из src/app в public
-	// Нужно подняться на 2 уровня выше (из app в src, потом в корень), а затем в public:
 	const filePath = resolve(__dirname, '../../public/oborotThisDay.json')
 
 	await fs.writeFile(filePath, JSON.stringify(data, null, 2), 'utf-8')
