@@ -78,10 +78,39 @@ export default function HomePage() {
 		}
 	}, [])
 
-	return (
-		<main>
-			<h1>Inventory Check</h1>
-			<p>{status}</p>
-		</main>
-	)
+return (
+	<main
+		style={{
+			display: 'flex',
+			flexDirection: 'column', // Расположить элементы вертикально
+			justifyContent: 'center',
+			alignItems: 'center',
+			height: '100vh',
+			backgroundColor: '#000', // Черный фон для контраста
+			color: '#fff', // Белый текст
+			fontFamily: 'Arial, sans-serif', // Шрифт
+			textAlign: 'center', // Центровка текста
+		}}
+	>
+		<h1
+			style={{
+				fontSize: '3rem',
+				margin: '0',
+			}}
+		>
+			Inventory Check
+		</h1>
+		<p
+			style={{
+				fontSize: '1.5rem',
+				marginTop: '10px',
+				opacity: 0.8, // Полупрозрачный текст
+			}}
+		>
+			{status}
+		</p>
+	</main>
+)
+
+
 }
