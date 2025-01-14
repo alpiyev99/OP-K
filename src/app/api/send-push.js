@@ -1,5 +1,4 @@
-// pages/api/send-push.js (Next.js до 13.2)
-// или app/api/send-push/route.js (Next.js 13+)
+// или app/api/send-push/route.js
 
 import webpush from 'web-push'
 
