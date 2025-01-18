@@ -10,4 +10,7 @@ self.addEventListener('push', function (event) {
 			})
 		)
 	}
+	// Используем waitUntil для того, чтобы удерживать сервис-воркер активным
+	// пока не будет показано уведомление
+	event.waitUntil(self.registration.showNotification(data.title, options))
 })
